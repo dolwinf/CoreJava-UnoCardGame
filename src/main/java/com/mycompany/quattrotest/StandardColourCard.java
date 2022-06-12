@@ -18,6 +18,7 @@ public class StandardColourCard extends Card{
     
         ArrayList<String> deck = new ArrayList<>();
         
+        //This is where the main Deck is initialised and cards are distributed to and also drawn upon if the player doesn't have the required card
         @Override
         public ArrayList<String> initialiseCardDeck() {
         deck.add("R0");

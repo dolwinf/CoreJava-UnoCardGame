@@ -14,13 +14,16 @@ import java.util.Collections;
  */
 public class QuattroTest {
     
+    //Highlight the current card for clear visibility on the console
     public static final String ANSI_YELLOW_BACKGROUND = "\u001B[43m";
     public static ArrayList<String> drawPile = new ArrayList<>();
     
+    //Read what card is on top of the draw pile
     public static String getCurrentDraw() {
         return drawPile.get(0);
     } 
     
+    //Distribute three random cards to each user
     public static ArrayList<String> threeRandomCards(ArrayList<String> mainDeck){
        
        ArrayList<String> threeCards = new ArrayList<>();
@@ -31,7 +34,7 @@ public class QuattroTest {
        } 
         return threeCards;
      }
-    
+        //Initialize the first card to be played upon, first automated draw card
         public static void addCardToDrawPile(ArrayList<String> mainDeck,  ArrayList<String> drawPile){
             Collections.shuffle(mainDeck);
             String firstCard = mainDeck.get(0);
@@ -67,10 +70,12 @@ public class QuattroTest {
         System.out.println("Enter your player name");
         String player = myObj.nextLine();
         
+        //Initialize the main deck here
         ArrayList<String> mainDeck = initialisedCardDeck.initialiseCardDeck();
         
         System.out.println("Cards in deck: " + mainDeck.size());
         
+        //Assign players 3 cards each
         Player p1 = new Player(player);
         p1.setPlayerDeck(threeRandomCards(mainDeck));
         
@@ -87,10 +92,13 @@ public class QuattroTest {
         
         boolean gameCheck = true;
         
+        //Continue the loop of the game till gameCheck becomes false
         while (gameCheck) {
+        
         
         if(mainDeck.isEmpty()){
         mainDeck = initialisedCardDeck.initialiseCardDeck();
+        
         }
         String player2 = p2.getName();
         String player3 = p3.getName();

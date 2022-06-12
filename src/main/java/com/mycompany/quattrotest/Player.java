@@ -32,6 +32,7 @@ public class Player {
         this.playerDeck = playerDeck;
     }
     
+    //This is the automated function that is called for the computer players to play their turn/card
     public void playCard(String drawCard, ArrayList<String> drawPile, ArrayList<String> mainDeck){
         
         String[] arrOfStr = drawCard.split("", 2);
@@ -51,6 +52,7 @@ public class Player {
         mainDeck.remove(pickedCardFromMainDeck);
      }
     
+    //This function is for you, the real player to process and analyse the card
     public String realPlayerPlayCard(String playerCard, ArrayList<String> drawPile){
         
         if (playerCard.length() == 0) return "NO_CARD";
