@@ -43,7 +43,7 @@ public class QuattroTest {
               Scanner myObj = new Scanner(System.in);
               System.out.println("Choose/Type one of the cards from your deck OR press ENTER to pass");
               String currentPlayerCard = myObj.nextLine();
-              String playedCard = player.realPlayerPlayCard(currentPlayerCard, drawPile);
+              String playedCard = player.realPlayerPlayCard(currentPlayerCard.toUpperCase(), drawPile);
                System.out.println("Played card " + playedCard);
               if(playedCard.equals("NO_CARD") || playedCard.equals("PASS")) {
                   //Pick a card from main deck and add it to the users card deck
@@ -82,9 +82,13 @@ public class QuattroTest {
         
         addCardToDrawPile(mainDeck, drawPile);
         
-        while (true) {
+        boolean gameCheck = true;
         
-        String player1 = p1.getName();
+        while (gameCheck) {
+        
+        if(mainDeck.isEmpty()){
+        mainDeck = initialisedCardDeck.initialiseCardDeck();
+        }
         String player2 = p2.getName();
         String player3 = p3.getName();
         String player4 = p4.getName();
@@ -94,57 +98,52 @@ public class QuattroTest {
         ArrayList<String> player3Deck = p3.getPlayerDeck();
         ArrayList<String> player4Deck = p4.getPlayerDeck();
         
-       
-           
-        System.out.println(" Player 1 is: " + player1);
-        System.out.println(" You have the cards in your deck : " + player1Deck);
-        
-        System.out.println(" Player 2 is: " + player2);
-        System.out.println(" Player 2 cards : " + player2Deck);
-        
-        System.out.println(" Player 3 is: " +  player3);
-        System.out.println(" Player 3 cards : " + player3Deck);
-        
-        System.out.println(" Player 4 is: " + player4);
-        System.out.println(" Player 4 cards : " + player4Deck);
+        System.out.println("Cards in your deck :" + player1Deck);
+        System.out.println(player2 + "'s cards : " + player2Deck);
+        System.out.println(player3 + "'s cards : " + player3Deck);
+        System.out.println(player4 + "'cards : " + player4Deck);
         
         
         System.out.println(ANSI_YELLOW_BACKGROUND + "Current card on draw pile: " + getCurrentDraw());
         
-        System.out.println("Cards remaining in deck: " + mainDeck.size());
-        
         if(!p1.getPlayerDeck().isEmpty()){
-            ArrayList<String> player1CardsRemaining = p1.getPlayerDeck();
+            
             getandPlayCardForRealPlayer(p1, mainDeck);
-            System.out.println("Player 1 has " +player1CardsRemaining.size()+" cards remaining");
+            
          } else {
             System.out.println("You have won the game");
             return;
         }
         
         if(!p2.getPlayerDeck().isEmpty()){
-            ArrayList<String> player2CardsRemaining = p2.getPlayerDeck();
+           
             p2.playCard(drawPile.get(0), drawPile, mainDeck);
-            System.out.println("Player 2 has " +player2CardsRemaining.size()+" cards remaining");
+           
            } else {
             System.out.println("Player 2 has won the game");
         }
          
          if(!p3.getPlayerDeck().isEmpty()){
-            ArrayList<String> player3CardsRemaining = p3.getPlayerDeck();
+            
             p3.playCard(drawPile.get(0), drawPile, mainDeck);
-            System.out.println("Player 3 has " +player3CardsRemaining.size()+" cards remaining");
+            
             } else {
             System.out.println("Player 3 has won the game");
         }
           
         if(!p4.getPlayerDeck().isEmpty()){
-            ArrayList<String> player4CardsRemaining = p4.getPlayerDeck();
+            
             p4.playCard(drawPile.get(0), drawPile, mainDeck);
-            System.out.println("Player 4 has " +player4CardsRemaining.size()+" cards remaining");
+            
            } else {
             System.out.println("Player 4 has won the game");
         }
+        if(player2Deck.isEmpty() && player3Deck.isEmpty() && player4Deck.isEmpty()) {
+        System.out.println("You lost the game");
+        gameCheck = false;
         }
+        }
+        
+        
     }
 }
