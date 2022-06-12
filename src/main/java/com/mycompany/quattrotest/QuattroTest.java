@@ -102,9 +102,24 @@ public class QuattroTest {
         ArrayList<String> player4Deck = p4.getPlayerDeck();
         
         System.out.println("Cards in your deck :" + player1Deck);
-        System.out.println(player2 + "'s cards : " + player2Deck);
-        System.out.println(player3 + "'s cards : " + player3Deck);
-        System.out.println(player4 + "'cards : " + player4Deck);
+        
+        if(player2Deck.isEmpty()) {
+            System.out.println(player2 + " has won the game");
+        } else {
+            System.out.println(player2 + "'s cards : " + player2Deck);
+        }
+        
+        if(player3Deck.isEmpty()) {
+            System.out.println(player3 + " has won the game");
+        } else {
+            System.out.println(player3 + "'s cards : " + player3Deck);
+        }
+        
+        if(player4Deck.isEmpty()) {
+            System.out.println(player4 + " has won the game");
+        } else {
+            System.out.println(player4 + "' cards : " + player4Deck);
+        }
         
         
         System.out.println(ANSI_YELLOW_BACKGROUND + "Current card on draw pile: " + getCurrentDraw());
