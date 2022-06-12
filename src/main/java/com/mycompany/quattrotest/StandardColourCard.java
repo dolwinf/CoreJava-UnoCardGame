@@ -12,6 +12,10 @@ import java.util.ArrayList;
  */
 public class StandardColourCard extends Card{
     
+     public void StandardColourCard() {
+        System.out.println("Initialise class");
+    }
+    
         ArrayList<String> deck = new ArrayList<>();
         
         @Override

@@ -4,10 +4,21 @@
  */
 package com.mycompany.quattrotest;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author dolwi
  */
-public class ColourCard {
+public class ColourCard extends Card{
     
+    public void ColourCard() {
+        System.out.println("Initialise class");
+    }
+    
+    @Override
+    public ArrayList<String> initialiseCardDeck() {
+        System.out.println("Initialise deck");
+        return new ArrayList<String>();
+    }
 }

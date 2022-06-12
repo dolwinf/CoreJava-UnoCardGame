@@ -3,14 +3,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.quattrotest;
-import java.util.HashMap;
+import java.util.ArrayList;
+
 /**
  *
  * @author dolwi
  */
 
 
-public class WildCard {
+public class WildCard extends Card{
     
+    public void WildCard() {
+        System.out.println("Initialise class");
+    }
+    
+    @Override
+    public ArrayList<String> initialiseCardDeck() {
+        System.out.println("Initialise deck");
+        return new ArrayList<String>();
+    }
   
 }
