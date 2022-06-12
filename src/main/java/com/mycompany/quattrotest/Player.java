@@ -53,6 +53,7 @@ public class Player {
     
     public String realPlayerPlayCard(String playerCard, ArrayList<String> drawPile){
         
+        if (playerCard.length() == 0) return "NO_CARD";
         String[] arrOfStr = playerCard.split("", 2);
         
         String cardLetter = arrOfStr[0];

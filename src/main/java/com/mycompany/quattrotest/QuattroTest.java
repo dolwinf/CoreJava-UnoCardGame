@@ -41,7 +41,7 @@ public class QuattroTest {
        
          public static void getandPlayCardForRealPlayer(Player player, ArrayList<String> mainDeck){
               Scanner myObj = new Scanner(System.in);
-              System.out.println("Choose/Type one of the cards from your deck OR type PASS to pass");
+              System.out.println("Choose/Type one of the cards from your deck OR press ENTER to pass");
               String currentPlayerCard = myObj.nextLine();
               String playedCard = player.realPlayerPlayCard(currentPlayerCard, drawPile);
                System.out.println("Played card " + playedCard);
