@@ -47,7 +47,10 @@ public class QuattroTest {
                System.out.println("Played card " + playedCard);
               if(playedCard.equals("NO_CARD") || playedCard.equals("PASS")) {
                   //Pick a card from main deck and add it to the users card deck
-                  player.getPlayerDeck().add(mainDeck.get(0));
+                  String mainDeckCard = mainDeck.get(0);
+                  player.getPlayerDeck().add(mainDeckCard);
+                  mainDeck.remove(mainDeckCard);
+                  
                   System.out.println("Passed");
                 } else {
                   //Else remove the card from the player deck and place it in the draw pile
